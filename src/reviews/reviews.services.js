@@ -3,9 +3,8 @@ const Treeize = require("treeize")
 
 async function updateReview(reviewId, updatedReview) {
   const q = await knex("reviews")
-  .select("*")
   .where({ "review_id": reviewId })
-  .update(updatedReview)
+  .update({...updatedReview, updated_at: knex.fn.now()})
   return q
 }
 

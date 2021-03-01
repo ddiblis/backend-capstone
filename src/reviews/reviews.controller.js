@@ -12,10 +12,8 @@ async function reviewIdExists(req, res, next) {
 
 async function update(req, res) {
   const { reviewId } = req.params
-  const { ...review } = await getReview(reviewId)
-  const updatedReview = { ...review, ...req.body.data }
-  const data = await updateReview(reviewId, updatedReview)
-  console.log(data)
+  await updateReview(reviewId, req.body.data)
+  const { ...data } = await getReview(reviewId)
   res.json({ data })
 }
 

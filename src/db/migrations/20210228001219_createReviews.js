@@ -4,6 +4,8 @@ exports.up = function(knex) {
   table.increments("review_id").primary()
   table.text("content")
   table.integer("score")
+  table.time("created_at").defaultTo(knex.fn.now())
+  table.time("updated_at").defaultTo(knex.fn.now())
 
   table.integer("movie_id").unsigned().notNullable()
   table
