@@ -16,7 +16,7 @@ async function listTheaters() {
     return theatersMovies.grow(q).getData()
   }
   catch (err) {
-    return new Error(`The query failed due to ${err}x`)
+    return new Error(`The query failed due to ${err}`)
   }
 }
 
